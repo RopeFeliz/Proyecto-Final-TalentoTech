@@ -309,8 +309,8 @@ def mostrar_estadisticas():
         categorias = cursor.fetchall()
         
         # Productos con stock bajo (menos de 10 unidades)
-        cursor.execute('SELECT nombre, COUNT(*) FROM productos WHERE cantidad < 10') 
-        stock_bajo = cursor.fetchone()[0]
+        cursor.execute('SELECT nombre, cantidad FROM productos WHERE cantidad < 10') 
+        stock_bajo = cursor.fetchall()
         
         print(f" Total de productos: {total_productos}")
         print(f" Valor total del inventario: ${valor_inventario:.2f}")
